@@ -1,0 +1,17 @@
+<h1>Edit <%= @book.title %></h1>
+<div class="row">
+  <form class="col 6" action="/books/<%= @book.id %>" method="post">
+    <div class="row">
+      <div class="input-field col s6">
+        <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <p>Book Title: <input type="text" name="title" value="<%= @book.title %>"></p>
+        <p>Book Description: <input type="text" name="desc" value="<%= @book.desc %>"></p>
+        <p>Book Amount: <input type="text" name="amount" value="<%= @book.amount %>"></p>
+        <p>Book Quantity: <input type="number" min="1" max="20" name="quantity" value="<%= @book.qty %>"></p>
+        <input type="submit" value="Update Book">
+      </div>
+    </div>
+  </form>
+</div>
+<a href="/dashboards/<%= session[:user_id] %>">Return to User Dashboard</a>

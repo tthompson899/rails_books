@@ -1,0 +1,7 @@
+<h1>Book Details for "<%= @book.title %>"</h1>
+
+<h4> Book Description: <%= @book.desc %></h4>
+<h4> Book Amount: <%= @book.amount %></h4>
+<h4> Quantity of this book: <%= @book.qty %></h4>
+
+<a href="/dashboards/<%= session[:user_id]%>">Back to User Dashboard</a>

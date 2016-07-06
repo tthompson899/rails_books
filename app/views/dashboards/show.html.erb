@@ -1,0 +1,59 @@
+<h1>Hello <%= @loggedin.first_name %>!</h1>
+<a href="/">Home</a> | <a href="/sessions" data-method="delete">Logout</a>|
+<a href="/books/new">New Book</a>
+
+<h3>All Books:</h3>
+<table class="striped" class="responsive-table">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Quantity</th>
+    <th>Amount</th>
+    <th>Actions</th>
+
+  </tr>
+  <% @books.each do |book| %>
+  <tr>
+    <td><%= book.title %></td>
+    <td><%= book.desc %></td>
+    <td><%= book.qty %></td>
+    <td>$<%= book.amount %></td>
+    <td><a href="/books/<%= book.id %>">Show</a>
+      <% if session[:user_id] == book.user_id %>
+        <a href="/books/<%= book.id %>/edit">Edit</a>
+      <% end %>
+      <% if session[:user_id] == book.user_id %>
+       <a href="/books/<%= book.id %>" data-method="delete">Remove</a>
+      <% end %>
+        <a href="/books/<%= book.id %>/buy">Buy</a>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<h3>Books you've purchased:</h3>
+<table class="striped" class="responsive-table">
+  <tr>
+    <th>Title</th>
+    <th>Quantity</th>
+    <th>Total Amount</th>
+    <th>Actions</th>
+  </tr>
+  <% @orders.each do |details|%>
+   <% if details.user_id == session[:user_id] %>
+    <tr>
+      <td><%= details.title %></td>
+      <td><%= details.qty %></td>
+      <td>$<%= details.cost.to_d %></td>
+      <td><form action="/dashboards/<%=details.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="book" value="<%=details.book_id%>">
+        <input type="hidden" name="qty" value="<%=details.qty%>">
+        <button type="submit">Cancel Order</button>
+       </form>
+      </td>
+    </tr>
+    <% end %>
+  <% end %>
+</table>

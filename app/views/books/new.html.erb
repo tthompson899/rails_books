@@ -1,0 +1,23 @@
+<h1>Add a new Book</h1>
+<a href="/dashboards/<%=session[:user_id]%>">Home</a>
+<% if flash[:errors]%>
+  <% flash[:errors].each do |msg| %>
+    <%= msg %>
+  <% end %>
+<% end %>
+<div class="row">
+  <form class="col 6" action="/books" method="post">
+    <div class="row">
+      <div class="input-field col s6">
+        <fieldset>
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          Title: <input type="text" name="title">
+          Description: <input type="text" name="desc">
+          Quantity: <input type="number" name="quantity" min="1" max="20">
+          Amount per Book: <input type="text" name="amount">
+          <input type="submit" value="Add Book">
+        </fieldset>
+      </div>
+    </div>
+  </form>
+</div>
