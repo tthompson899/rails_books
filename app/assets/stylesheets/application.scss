@@ -62,5 +62,12 @@ form.new_book_form{
 
 // show books show.html.erb page
 .center a{
-  color: #fff; 
+  color: #fff;
+}
+
+// buys books page - purchase.html.erb
+.row .col.s2{
+  border: 2px solid #000;
+  padding-bottom: 10px;
+  margin-left: 650px;
 }

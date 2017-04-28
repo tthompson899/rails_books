@@ -1,14 +1,16 @@
-<h1>Purchase Book</h1>
+<h1 class="center">Purchase Book</h1>
 
-<div class="row">
+<div class="row center">
   <p>Title: <%= @book.title %></p>
   <p>Description: <%= @book.desc %></p>
   <p>Amount: $<%= @book.amount %></p>
   <form class="col s2" action="/books/<%= @book.id%>" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <p>Quantity: <input type="number" name="quantity" min="1" max="<%= @book.qty %>" value="<%= @book.qty %>"></p>
+    <p class="center">Quantity: <input type="number" name="quantity" min="1" max="<%= @book.qty %>" value="<%= @book.qty %>"></p>
     <input type="submit" value="Buy Books">
   </form>
 </div>
 
+<div class="center">
   <a href="/dashboards/<%= session[:user_id] %>">Return to User Dashboard</a>
+</div>
