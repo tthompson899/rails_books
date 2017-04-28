@@ -1,3 +1,35 @@
 @import "materialize/components/color";
 $primary-color: color("blue", "lighten-2") !default;
 @import "materialize";
+
+*{
+  background-color: #7ab5a6;
+}
+.center{
+  text-align: center;
+}
+.row.reg_form{
+  width: 48%;
+  float: left;
+  margin-left: 10px;
+}
+.row.login_form{
+  width: 50%;
+  float: left;
+}
+fieldset{
+  border: 2px solid #000;
+}
+  input[type=text], input[type=number], input[type=password] {
+    border-bottom: 2px solid #000;
+  }
+  input[type=submit]{
+    border: 2px solid #000;
+  }
+  .input-field.col.s6{
+    margin-left: 260px;
+    width: 67%;
+  }
+  .input-field.col.s10{
+    margin-left: 25px;
+  }

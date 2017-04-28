@@ -1,42 +1,43 @@
-<h1>Register or Login</h1>
-  <div class="row">
-    <form class="col 4" action="/users" method="post">
-      <div class="row">
-        <div class="input-field col s4">
-          <fieldset><legend>Registration</legend>
-            <% if flash[:errors] %>
-             <% flash[:errors].each do |err| %>
-              <%= err %><% "."%><br>
-             <% end %>
-            <% end %>
-              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-              First Name: <input type="text" name="register[first_name]">
-              Last Name: <input type="text" name="register[last_name]">
-              Email: <input type="text" name="register[email]">
-              Age: <input type="number" min="18" max="70" name="register[age]">
-              Password: <input type="password" name="register[password]">
-              Confirm Password: <input type="password" name="register[password_confirmation]">
-              <input type="submit" value="Register">
-          </fieldset>
-        </div>
-       </div>
-      </form>
-    </div>
-
-  <div class="row">
-      <form class="col 10" action="/sessions" method="post">
-        <div class="row">
-          <div class="input-field col s10">
-            <fieldset><legend>Login</legend>
-              <% if flash[:error] %>
-               <%= flash[:error] %>
-              <% end %>
-              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-              Email: <input type="text" name="email">
-              Password: <input type="password" name="password">
-              <input type="submit" value="Login">
-          </fieldset>
-        </div>
+<h1 class="center">Welcome to Rails Books!</h1>
+<h2 class="center">Register or Login</h2>
+<div class="row reg_form">
+  <form class="col 4" action="/users" method="post">
+    <div class="row">
+      <div class="input-field col s6">
+        <fieldset><legend>Register</legend>
+          <% if flash[:errors] %>
+           <% flash[:errors].each do |err| %>
+            <%= err %><% "."%><br>
+           <% end %>
+          <% end %>
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            First Name: <input type="text" name="register[first_name]">
+            Last Name: <input type="text" name="register[last_name]">
+            Email: <input type="text" name="register[email]">
+            Age: <input type="number" min="18" max="70" name="register[age]">
+            Password: <input type="password" name="register[password]">
+            Confirm Password: <input type="password" name="register[password_confirmation]">
+            <input type="submit" value="Register">
+        </fieldset>
       </div>
+     </div>
     </form>
   </div>
+
+<div class="row login_form">
+    <form class="col 10" action="/sessions" method="post">
+      <div class="row">
+        <div class="input-field col s10">
+          <fieldset><legend>Login</legend>
+            <% if flash[:error] %>
+             <%= flash[:error] %>
+            <% end %>
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            Email: <input type="text" name="email">
+            Password: <input type="password" name="password">
+            <input type="submit" value="Login">
+        </fieldset>
+      </div>
+    </div>
+  </form>
+</div>
