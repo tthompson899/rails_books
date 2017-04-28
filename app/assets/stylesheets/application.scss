@@ -57,5 +57,10 @@ form.new_book_form{
 }
   #submit_new_book{
     width: 100%;
-    margin: 0 auto; 
+    margin: 0 auto;
   }
+
+// show books show.html.erb page
+.center a{
+  color: #fff; 
+}
