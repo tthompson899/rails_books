@@ -50,3 +50,12 @@ nav .nav-wrapper{
     margin: 10px;
     font-size: 12pt;
   }
+
+// New book form style new.html.erb
+form.new_book_form{
+  margin-left: 135px;
+}
+  #submit_new_book{
+    width: 100%;
+    margin: 0 auto; 
+  }
