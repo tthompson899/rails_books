@@ -2,6 +2,7 @@
 $primary-color: color("blue", "lighten-2") !default;
 @import "materialize";
 
+// Style for register/login index.html.erb page
 *{
   background-color: #7ab5a6;
 }
@@ -32,4 +33,20 @@ fieldset{
   }
   .input-field.col.s10{
     margin-left: 25px;
+  }
+
+// style for show.html.erb
+table.bordered > tbody > tr{
+  border-bottom: 2px solid #000;
+}
+button{
+  border: 2px solid #000;
+}
+
+nav .nav-wrapper{
+  background-color: #a67ab5;
+}
+  nav .nav-wrapper a{
+    margin: 10px;
+    font-size: 12pt;
   }

@@ -1,9 +1,16 @@
-<h1>Hello <%= @loggedin.first_name %>!</h1>
-<a href="/">Home</a> | <a href="/sessions" data-method="delete">Logout</a>|
-<a href="/books/new">New Book</a>
+<h1 class="center">Hello <%= @loggedin.first_name %>!</h1>
+
+<nav>
+  <div class="nav-wrapper center">
+    <a href="/">Home</a>|
+    <a href="/books/new">New Book</a>|
+    <a href="/sessions" data-method="delete">Logout</a>
+  </div>
+</nav>
+
 
 <h3>All Books:</h3>
-<table class="striped" class="responsive-table">
+<table class="bordered responsive-table">
   <tr>
     <th>Title</th>
     <th>Description</th>
@@ -18,7 +25,7 @@
     <td><%= book.desc %></td>
     <td><%= book.qty %></td>
     <td>$<%= book.amount %></td>
-    <td><a href="/books/<%= book.id %>">Show</a>
+    <td><a href="/books/<%= book.id %>">Show</a> |
       <% if session[:user_id] == book.user_id %>
         <a href="/books/<%= book.id %>/edit">Edit</a>
       <% end %>
@@ -32,7 +39,7 @@
 </table>
 
 <h3>Books you've purchased:</h3>
-<table class="striped" class="responsive-table">
+<table class="bordered responsive-table">
   <tr>
     <th>Title</th>
     <th>Quantity</th>
